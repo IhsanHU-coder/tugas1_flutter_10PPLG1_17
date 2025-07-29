@@ -13,6 +13,11 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController txtUsername= TextEditingController();
   TextEditingController txtPassword = TextEditingController();
   String statusRegister = "Register Status";
+  String? selectedGender;
+  DateTime? selectedDate;
+  TextEditingController txtDate = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +37,8 @@ class _RegisterPageState extends State<RegisterPage> {
             Center(
               child: Image.asset(
                 'assets/gambar.png',
-                width: 200,
-                height: 200,
+                width: 100,
+                height: 100,
               ),
             ),
             //buatlah isian username dan password
@@ -60,25 +65,73 @@ class _RegisterPageState extends State<RegisterPage> {
                 border: OutlineInputBorder(), 
               ),
             ),
+
             SizedBox(height: 10),
-            TextField(
-              controller: txtConfirmPassword,
-              obscureText: true, // untuk menyembunyikan karakter password
-              decoration: InputDecoration(
-                labelText: "Confirm Password",
-                hintText: "Enter back your password",
-                border: OutlineInputBorder(), 
-              ),
-            ),
-            //button login
+Text("Select Gender:", style: TextStyle(fontWeight: FontWeight.bold)),
+
+RadioListTile<String>(
+  title: const Text('Male'),
+  value: 'Male',
+  groupValue: selectedGender,
+  onChanged: (value) {
+    setState(() {
+      selectedGender = value;
+    });
+  },
+),
+
+RadioListTile<String>(
+  title: const Text('Female'),
+  value: 'Female',
+  groupValue: selectedGender,
+  onChanged: (value) {
+    setState(() {
+      selectedGender = value;
+    });
+  },
+),
+
+SizedBox(height: 10),
+Text("Date of Birth:", style: TextStyle(fontWeight: FontWeight.bold)),
+TextField(
+  controller: txtDate,
+  readOnly: true,
+  decoration: InputDecoration(
+    hintText: 'Select your birth date',
+    border: OutlineInputBorder(),
+    suffixIcon: Icon(Icons.calendar_today),
+  ),
+  onTap: () async {
+    DateTime? pickedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (pickedDate != null) {
+      setState(() {
+        selectedDate = pickedDate;
+        txtDate.text = "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
+      });
+    }
+  },
+),
+
+
+
+            //Regiter button
             Center(
               child: Container(
                 margin: EdgeInsets.only(top: 10),
                 child: ElevatedButton(
                   onPressed: () {
                     //jika username dan password adalah admin maka muncul snackbar
-                    if (txtPassword.text != "" && txtConfirmPassword.text != "" && txtUsername.text != ""){
-                    if(txtConfirmPassword.text == txtPassword.text){
+                    if (txtUsername.text.isNotEmpty &&
+    txtPassword.text.isNotEmpty &&
+    selectedGender != null &&
+    selectedDate != null) {
+
                       
                       ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text("Register Successfull")),
@@ -93,16 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         );
                     }else{
                       ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Tidak sama passwordnya")),
-                      );
-                      setState(() {
-                        statusRegister = "Register Error";
-                        print(statusRegister);
-                      });
-                    }
-                    }else{
-                      ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Tolong di isi username, password dan juga confirm passwordnya")),
+                      SnackBar(content: Text("Tolong di isi username, password, gender dan juga tanggalnya")),
                       );
                       setState(() {
                         statusRegister = "Register Error";
