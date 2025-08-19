@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: AppRoutes.calculator,
+      initialRoute: AppRoutes.mainmenu,
       getPages: AppPages.pages,
     );
   }
