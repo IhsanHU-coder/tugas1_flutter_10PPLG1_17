@@ -4,9 +4,10 @@ import 'package:project_dart_1/controllers/football_controller.dart';
 import 'package:project_dart_1/models/football_model.dart';
 
 class FootballEditPages extends StatefulWidget {
-  final int? index; // null kalau tambah baru
+  // final int? index; // null kalau tambah baru
 
-  const FootballEditPages({super.key, this.index});
+  // const FootballEditPages({super.key, this.index});
+  const FootballEditPages({super.key});
 
   @override
   State<FootballEditPages> createState() => _FootballEditPagesState();
@@ -18,14 +19,18 @@ class _FootballEditPagesState extends State<FootballEditPages> {
   late TextEditingController imageController;
   late TextEditingController nameController;
   late TextEditingController numberController;
+  
+  int? index;
 
   @override
   void initState() {
     super.initState();
 
-    if (widget.index != null) {
+    index = Get.arguments;
+
+    if (index != null) {
       // Mode edit → ambil data pemain
-      final player = footballController.players[widget.index!];
+      final player = footballController.players[index!];
       imageController = TextEditingController(text: player.image);
       nameController = TextEditingController(text: player.namaOrang);
       numberController = TextEditingController(text: player.nomor);
@@ -47,7 +52,7 @@ class _FootballEditPagesState extends State<FootballEditPages> {
 
   @override
   Widget build(BuildContext context) {
-    final isEdit = widget.index != null;
+    final isEdit = index != null;
 
     return Scaffold(
       appBar: AppBar(
@@ -77,7 +82,7 @@ class _FootballEditPagesState extends State<FootballEditPages> {
               onPressed: () {
                 if (isEdit) {
                   // update data pemain
-                  footballController.players[widget.index!] = FootballPlayer(
+                  footballController.players[index!] = FootballPlayer(
                     image: imageController.text,
                     namaOrang: nameController.text,
                     nomor: numberController.text,

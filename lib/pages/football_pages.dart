@@ -32,8 +32,12 @@ class FootballPages extends StatelessWidget {
                 title: Text(player.namaOrang),
                 subtitle: Text('No. ${player.nomor}'),
                 onTap: () {
-                  // Get.toNamed(AppRoutes.footballeditplayers);
-                  Get.to(() => FootballEditPages(index: index));
+                  //Get.toNamed(AppRoutes.footballeditplayers);
+                  //Get.to(() => FootballEditPages(index: index));
+                  Get.toNamed(
+                    AppRoutes.footballeditplayers, // route yg kamu definisikan di routes.dart
+                    arguments: index,
+                  );
                   Get.snackbar(
                     "Edit Player",
                     "Editing ${player.namaOrang} - No. ${player.nomor}",
