@@ -19,4 +19,5 @@ class FootballController extends GetxController {
       nomor: '7',
     ),
   ].obs;
+  
 }
