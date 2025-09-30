@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_dart_1/controllers/calculator_controller.dart';
 import 'package:project_dart_1/controllers/football_edit_controller.dart';
 
 class FootballEditPages extends StatelessWidget {
@@ -7,7 +8,8 @@ class FootballEditPages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(FootballEditController());
+    //final controller = Get.put(FootballEditController());
+    final controller = Get.find<FootballEditController>();
 
     return Scaffold(
       appBar: AppBar(

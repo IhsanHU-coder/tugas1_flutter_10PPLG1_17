@@ -4,9 +4,17 @@ import 'package:project_dart_1/Login_Page.dart';
 import 'package:get/get.dart';
 import 'package:project_dart_1/Routes/pages.dart';
 import 'package:project_dart_1/Routes/routes.dart';
+import 'package:project_dart_1/controllers/contact_controller.dart';
+import 'package:project_dart_1/controllers/football_controller.dart';
+import 'package:project_dart_1/controllers/login_controller.dart';
+import 'package:project_dart_1/controllers/splashscreen_controller.dart';
 import 'package:project_dart_1/pages/calculator_page.dart';
 
 void main() {
+  Get.put(LoginController()); // ini global, bisa diakses Get.find di manapun
+  Get.put(SplashscreenController());
+  Get.put(ContactController());
+  Get.put(FootballController());
   runApp(const MyApp());
 }
 
@@ -36,7 +44,8 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      initialRoute: AppRoutes.mainmenu,
+      //initialRoute: AppRoutes.mainmenu,
+      initialRoute: AppRoutes.splashScreen,
       getPages: AppPages.pages,
     );
   }

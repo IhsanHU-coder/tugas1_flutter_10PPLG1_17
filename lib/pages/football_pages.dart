@@ -12,6 +12,7 @@ class FootballPages extends StatelessWidget {
   FootballPages({super.key});
 
   final FootballController footballController = Get.put(FootballController());
+  //final footballController = Get.find<FootballController>();
 
   @override
   Widget build(BuildContext context) {

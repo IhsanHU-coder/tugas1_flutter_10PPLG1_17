@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_dart_1/Main_Menu.dart';
 import 'package:project_dart_1/Register_Page.dart';
+import 'package:project_dart_1/pages/HomePage.dart';
 import 'package:project_dart_1/widgets/widget_button.dart';
 import 'package:project_dart_1/widgets/widget_textfield.dart';
 
@@ -82,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       });
                       Navigator.push(
                         context, 
-                        MaterialPageRoute(builder: (context) => MainMenu()),
+                        MaterialPageRoute(builder: (context) => HomePage()),
                         );
                     }else{
                       ScaffoldMessenger.of(context).showSnackBar(
