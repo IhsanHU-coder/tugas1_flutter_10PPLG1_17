@@ -4,11 +4,16 @@ import 'package:project_dart_1/Login_Page.dart';
 import 'package:project_dart_1/Routes/routes.dart';
 import 'package:project_dart_1/bindings/calculator_binding.dart';
 import 'package:project_dart_1/bindings/contact_binding.dart';
+import 'package:project_dart_1/bindings/example_binding.dart';
+import 'package:project_dart_1/bindings/example_footballplayer_binding.dart';
 import 'package:project_dart_1/bindings/login_binding.dart';
 import 'package:project_dart_1/bindings/splashscreen_binding.dart';
 import 'package:project_dart_1/pages/HomePage.dart';
+import 'package:project_dart_1/pages/Mobile/example_football_pages.dart';
 import 'package:project_dart_1/pages/calculator_page.dart';
 import 'package:project_dart_1/pages/contact_page.dart';
+import 'package:project_dart_1/pages/example_footballplayer_page.dart';
+import 'package:project_dart_1/pages/example_page.dart';
 import 'package:project_dart_1/pages/football_add_pages.dart';
 import 'package:project_dart_1/pages/football_edit_pages.dart';
 import 'package:project_dart_1/pages/football_pages.dart';
@@ -42,5 +47,7 @@ class AppPages{
     GetPage(name: AppRoutes.splashScreen, page: ()=> SplashscreenPage(), binding: SplashscreenBinding()),
     GetPage(name: AppRoutes.login, page: ()=> LoginPages(), binding: LoginBinding()),
     GetPage(name: AppRoutes.contact, page: ()=> ContactPage(), binding: ContactBinding()),
+    GetPage(name: AppRoutes.examplescreen, page: ()=> ExamplePage(), binding: ExampleBinding()),
+    GetPage(name: AppRoutes.examplefootballplayers, page: ()=> ExampleFootballplayerPage(), binding: ExampleFootballplayerBinding()),
   ];
 }

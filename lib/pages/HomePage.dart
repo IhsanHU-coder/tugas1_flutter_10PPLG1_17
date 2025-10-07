@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_dart_1/controllers/calculator_controller.dart';
 import 'package:project_dart_1/controllers/contact_controller.dart';
+import 'package:project_dart_1/controllers/example_controller.dart';
+import 'package:project_dart_1/controllers/example_footballplayer_controller.dart';
 import 'package:project_dart_1/controllers/football_controller.dart';
 import 'package:project_dart_1/controllers/home_controller.dart';
 import 'package:project_dart_1/controllers/login_controller.dart';
+import 'package:project_dart_1/pages/Mobile/example_football_pages.dart';
 import 'package:project_dart_1/pages/calculator_page.dart';
 import 'package:project_dart_1/pages/contact_page.dart';
+import 'package:project_dart_1/pages/example_footballplayer_page.dart';
+import 'package:project_dart_1/pages/example_page.dart';
 import 'package:project_dart_1/pages/football_pages.dart';
 import 'package:project_dart_1/pages/profile_page.dart';
 
@@ -77,6 +82,26 @@ class HomePage extends StatelessWidget {
                   onTap: () {
                     Get.lazyPut<ContactController>(() => ContactController());
                     Get.to(() => const ContactPage());
+                    // controller.changeTab(3);
+                    // Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.person),
+                  title: const Text("Example"),
+                  onTap: () {
+                    Get.lazyPut<ExampleController>(() => ExampleController());
+                    Get.to(() => ExamplePage());
+                    // controller.changeTab(3);
+                    // Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.person),
+                  title: const Text("Example Football"),
+                  onTap: () {
+                    Get.lazyPut<ExampleFootballplayerController>(() => ExampleFootballplayerController());
+                    Get.to(() => ExampleFootballplayerPage());
                     // controller.changeTab(3);
                     // Navigator.pop(context);
                   },

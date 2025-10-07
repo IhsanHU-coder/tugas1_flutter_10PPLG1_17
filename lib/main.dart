@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:project_dart_1/Login_Page.dart';
 import 'package:get/get.dart';
 import 'package:project_dart_1/Routes/pages.dart';
 import 'package:project_dart_1/Routes/routes.dart';
 import 'package:project_dart_1/controllers/contact_controller.dart';
+import 'package:project_dart_1/controllers/example_controller.dart';
 import 'package:project_dart_1/controllers/football_controller.dart';
 import 'package:project_dart_1/controllers/login_controller.dart';
 import 'package:project_dart_1/controllers/splashscreen_controller.dart';
@@ -15,6 +14,7 @@ void main() {
   Get.put(SplashscreenController());
   Get.put(ContactController());
   Get.put(FootballController());
+  Get.put(ExampleController());
   runApp(const MyApp());
 }
 
@@ -45,7 +45,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       //initialRoute: AppRoutes.mainmenu,
-      initialRoute: AppRoutes.splashScreen,
+      //initialRoute: AppRoutes.splashScreen,
+      initialRoute: AppRoutes.examplescreen,
       getPages: AppPages.pages,
     );
   }
