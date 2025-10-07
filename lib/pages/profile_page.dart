@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_dart_1/controllers/login_controller.dart';
-import 'package:project_dart_1/controllers/splashscreen_controller.dart';
 import 'package:project_dart_1/widgets/widget_button.dart';
 
 class ProfilePage extends StatelessWidget {

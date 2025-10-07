@@ -7,7 +7,6 @@ import 'package:project_dart_1/controllers/example_footballplayer_controller.dar
 import 'package:project_dart_1/controllers/football_controller.dart';
 import 'package:project_dart_1/controllers/home_controller.dart';
 import 'package:project_dart_1/controllers/login_controller.dart';
-import 'package:project_dart_1/pages/Mobile/example_football_pages.dart';
 import 'package:project_dart_1/pages/calculator_page.dart';
 import 'package:project_dart_1/pages/contact_page.dart';
 import 'package:project_dart_1/pages/example_footballplayer_page.dart';

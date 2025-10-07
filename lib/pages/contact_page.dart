@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_dart_1/controllers/contact_controller.dart';
-import 'package:project_dart_1/widgets/widget_button.dart';
 import 'package:project_dart_1/widgets/widget_textfield.dart';
 
 class ContactPage extends GetView<ContactController> {
